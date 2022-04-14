@@ -1,0 +1,126 @@
+{
+	"env": {
+		"browser": true,
+		"node": true,
+		"jest": true
+	},
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json", // required for rules that need type information
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"settings": {
+		"react": {
+			"version": "17.0.2"
+		},
+		"import/resolver": {
+			"node": {
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx",
+					".sass"
+				]
+			}
+		}
+	},
+	"extends": [
+    "next/core-web-vitals",
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"semi": [
+			"error",
+			"never"
+		],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1,
+				"VariableDeclarator": 0
+			}
+		],
+		"no-tabs": [
+			"error",
+			{
+				"allowIndentationTabs": true
+			}
+		],
+		"padded-blocks": [
+			"error",
+			"always"
+		],
+		"lines-between-class-members": [
+			"error",
+			"always"
+		],
+		"max-len": 0,
+		"react/jsx-closing-bracket-location": [
+			1,
+			"after-props"
+		],
+		"react/react-in-jsx-scope": [
+			0
+		],
+		"linebreak-style": [
+			0
+		],
+		"operator-linebreak": [
+			0
+		],
+		"react/jsx-indent-props": [
+			0
+		],
+		"react/jsx-indent": [
+			1,
+			"tab"
+		],
+		"react/no-danger": 0,
+		"react/prop-types": [
+			0
+		],
+		"react/forbid-prop-types": [
+			1,
+			{
+				"forbid": [
+					"any"
+				]
+			}
+		],
+		"react/jsx-first-prop-new-line": [
+			0
+		],
+		"quotes": [
+			2,
+			"double",
+			{
+				"allowTemplateLiterals": true
+			}
+		],
+		"react/jsx-one-expression-per-line": [
+			0
+		],
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [
+					".js",
+					".jsx",
+					".tsx"
+				]
+			}
+		]
+	}
+}
