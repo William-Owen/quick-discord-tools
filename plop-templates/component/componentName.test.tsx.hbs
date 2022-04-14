@@ -1,0 +1,10 @@
+import * as React from 'react'
+import { render, screen } from '@testing-library/react'
+import {{componentName}} from '.'
+
+describe('Component: {{componentName}}', () => {
+	it('renders', () => {
+		const { container } = render(<{{componentName}} />)
+		expect(container).toBeInTheDocument()
+	})
+})

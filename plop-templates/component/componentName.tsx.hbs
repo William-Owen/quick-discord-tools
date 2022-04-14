@@ -1,0 +1,22 @@
+import React from 'react'
+import clsx from 'clsx'
+import style from './{{componentName}}.module.sass'
+
+interface {{componentName}}Props {
+	children?: React.ReactNode
+	className?: string
+}
+
+const {{componentName}}: React.FC<{{componentName}}Props> = ({ children, className }) => {
+
+	const rootClassName = clsx([style.Component, '{{componentName}}', className])
+
+	return (
+		<div data-testid='{{componentName}}' className={rootClassName}>
+			{children}
+		</div>
+	)
+
+}
+
+export default {{componentName}}
