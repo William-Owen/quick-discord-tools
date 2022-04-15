@@ -6,9 +6,10 @@ import Field from "../Field/Field"
 interface FieldInputTimeProps {
 	className?: string
 	onChange?: (value: string) => void
+	label?: string
 }
 
-const FieldInputTime: React.FC<FieldInputTimeProps> = ({ className, onChange = () => null }) => {
+const FieldInputTime: React.FC<FieldInputTimeProps> = ({ className, onChange = () => null, label }) => {
 
 	const [selectedHour, setSelectedHour] = useState(0)
 	const [selectedMinute, setSelectedMinute] = useState(0)
@@ -53,9 +54,9 @@ const FieldInputTime: React.FC<FieldInputTimeProps> = ({ className, onChange = (
 
 	return (
 
-		<Field data-testid='FieldInputTime' className={rootClassName} label="Time">
+		<Field data-testid='FieldInputTime' className={rootClassName} label={label}>
 
-			<h2>{`${String(selectedHour).padStart(2, "0")}:${String(selectedMinute).padStart(2, "0")}`}</h2>
+			<h3>{`${String(selectedHour).padStart(2, "0")}:${String(selectedMinute).padStart(2, "0")}`}</h3>
 
 			<div>
 

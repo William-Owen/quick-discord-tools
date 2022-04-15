@@ -4,21 +4,23 @@ import "react-datepicker/dist/react-datepicker.css"
 import style from "./FieldInputDate.module.sass"
 import Field from "../Field/Field"
 import DatePicker from "react-datepicker"
+import moment from "moment"
 
 interface FieldInputDateProps {
 	className?: string
 	onChange?: (value: Date) => void
+	label?: string
 }
 
-const FieldInputDate: React.FC<FieldInputDateProps> = ({className, onChange = () => null}) => {
+const FieldInputDate: React.FC<FieldInputDateProps> = ({className, onChange = () => null, label}) => {
 
-	const [startDate, setStartDate] = useState(new Date())
+	const [currentDate, setCurrentDate] = useState(new Date())
 	const rootClassName = clsx([style.FieldInputDate, "FieldInputDate", className])
 
 	const handleDateChange = (date: Date) => {
 
 		onChange(date)
-		setStartDate(date)
+		setCurrentDate(date)
 
 	}
 
@@ -26,9 +28,10 @@ const FieldInputDate: React.FC<FieldInputDateProps> = ({className, onChange = ()
 
 		<div data-testid='FieldInputDate' className={rootClassName}>
 
-			<Field label="Date">
+			<Field label={label}>
 
-				<DatePicker selected={startDate} onChange={(date) => date && handleDateChange(date)} inline/>
+				<h3>{moment(currentDate).format("dddd, MMMM D, YYYY")}</h3>
+				<DatePicker selected={currentDate} onChange={(date) => date && handleDateChange(date)} inline/>
 
 			</Field>
 

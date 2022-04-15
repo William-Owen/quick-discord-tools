@@ -25,7 +25,19 @@
 		background: none
 
 	:global(.react-datepicker__day--selected),
-	:global(.react-datepicker__day--selected):hover
+	:global(.react-datepicker__day--selected):hover,
+	:global(.react-datepicker__day--selected.react-datepicker__day--today),
+	:global(.react-datepicker__day--selected.react-datepicker__day--today):hover
 
 		color: #fff
 		background: var(--color-action)
+
+	:global(.react-datepicker__day--today)
+
+		background: #ffffff10
+		border-radius: var(--base-radius)
+
+	:global(.react-datepicker__day--today):hover
+
+		background: #ffffff10
+		border-radius: var(--base-radius)
