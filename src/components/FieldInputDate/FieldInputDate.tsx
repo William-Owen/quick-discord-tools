@@ -7,44 +7,33 @@ import DatePicker from "react-datepicker"
 
 interface FieldInputDateProps {
 	className?: string
+	onChange?: (value: Date) => void
 }
 
-const FieldInputDate: React.FC<FieldInputDateProps> = ({className }) => {
+const FieldInputDate: React.FC<FieldInputDateProps> = ({className, onChange = () => null}) => {
 
 	const [startDate, setStartDate] = useState(new Date())
 	const rootClassName = clsx([style.FieldInputDate, "FieldInputDate", className])
 
-	const hours = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-	const minutes = ["00", "15", "30", "45"]
-	const dayTime = ["AM", "PM"]
+	const handleDateChange = (date: Date) => {
+
+		onChange(date)
+		setStartDate(date)
+
+	}
 
 	return (
+
 		<div data-testid='FieldInputDate' className={rootClassName}>
-			<Field label="Timestamp Date">
-				<DatePicker
-					selected={startDate}
-					onChange={(date) => date && setStartDate(date)}
-					inline/>
 
-				<div className={style.TimePicker}>
+			<Field label="Date">
 
-					<div className={style.hours}>
-						{hours.map(x => <div key={x}>{x}</div>)}
-					</div>
-
-					<div className={style.minutes}>
-						{minutes.map(x => <div key={x}>{x}</div>)}
-					</div>
-
-					<div className={style.dayTime}>
-						{dayTime.map(x => <div key={x}>{x}</div>)}
-					</div>
-
-				</div>
+				<DatePicker selected={startDate} onChange={(date) => date && handleDateChange(date)} inline/>
 
 			</Field>
 
 		</div>
+
 	)
 
 }

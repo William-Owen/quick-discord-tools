@@ -1,0 +1,44 @@
+.FieldInputTime
+
+	> div
+
+		display: inline-flex
+		flex-direction: row
+		background: var(--color-island)
+		border-radius: var(--base-radius)
+
+		> div
+
+			padding: 1rem
+			line-height: 1.7rem
+			font-size: 0.8rem
+
+			&.hoursContainer
+
+				display: flex
+				flex-direction: column
+				border-right: 1px solid #ffffff07
+
+				.group
+
+					display: flex
+					flex-direction: row
+
+	.time
+
+		font-size: 0.8rem
+		width: 1.7rem
+		line-height: 1.7rem
+		text-align: center
+		margin: 0.166rem
+
+		&:hover
+
+			cursor: pointer
+			color: var(--color-text-strong)
+
+		&.selected
+
+			color: #fff
+			background: var(--color-action)
+			border-radius: var(--base-radius)
