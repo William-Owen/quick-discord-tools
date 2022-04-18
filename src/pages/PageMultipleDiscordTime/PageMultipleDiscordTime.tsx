@@ -20,7 +20,6 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 		const newDateTime = moment(newDate).hour(parseInt(newTime.split(":")[0])).minute(parseInt(newTime.split(":")[1])).toDate()
 		setCurrentDateTime(newDateTime)
-		console.log(`\nThis event will start ${moment(newDateTime).format("dddd, MMMM D, YYYY [at] HH:mm")} (${moment(newDateTime).fromNow()})\n<t:${Math.floor(new Date(newDateTime).getTime() / 1000)}:F> (<t:${Math.floor(new Date(newDateTime).getTime() / 1000)}:R>) your time.`)
 
 	}
 
@@ -51,8 +50,6 @@ const PageMultipleDiscordTime: React.FC = () => {
 		})
 
 		setDateTimeArray(newArrayWithoutDuplicates)
-		console.info(`Adding currentDateTime: ${currentDateTime}`)
-		console.info(`Adding dateTimeArray:`, dateTimeArray)
 
 	}
 
@@ -63,6 +60,8 @@ const PageMultipleDiscordTime: React.FC = () => {
 		dateTimeIconString += `${numberIconsArray[index]} <t:${makeDiscordTimeStamp(dateTime)}:F> (<t:${makeDiscordTimeStamp(dateTime)}:R>)\n`
 
 	})
+
+	const handleRemoveAll = () => setDateTimeArray([])
 
 	const removeItemByIndex = (index: number) => {
 
@@ -86,7 +85,14 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 				<div>
 					<FieldInputTime onChange={(time)=>handleTimeChange(time)} />
-					<Button size="medium" label="Add time" onClick={handleAddTime} />
+
+					<div className={style.actionsBar}>
+
+						<Button size="medium" label="Add time" onClick={handleAddTime} />
+						<Button size="medium" label="Clear" onClick={handleRemoveAll} />
+
+					</div>
+
 				</div>
 
 			</div>
@@ -96,6 +102,7 @@ const PageMultipleDiscordTime: React.FC = () => {
 				<div>
 
 					<h3>Descriptive Timestamp</h3>
+					<p>Ordered by date, duplicates removed</p>
 
 					<CopyTextToClipboard className={style.timeListing} textToCopy={dateTimeIconString}>
 
