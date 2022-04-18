@@ -11,6 +11,8 @@ const PageDiscordTime: React.FC = () => {
 	const [currentTime, setCurrentTime] = useState<string>("00:00")
 	const [currentDateTime, setCurrentDateTime] = useState<Date>(moment().toDate())
 
+	const timesArray = []
+
 	const handleDateTimeChange = (newTime: string, newDate: Date) => {
 
 		const newDateTime = moment(newDate).hour(parseInt(newTime.split(":")[0])).minute(parseInt(newTime.split(":")[1])).toDate()
