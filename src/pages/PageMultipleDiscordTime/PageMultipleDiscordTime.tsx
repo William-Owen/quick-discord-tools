@@ -40,7 +40,17 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 	const handleAddTime = () => {
 
-		setDateTimeArray([...dateTimeArray, currentDateTime])
+		const newArray = [...dateTimeArray, currentDateTime]
+		newArray.sort((a, b) => a.getTime() - b.getTime())
+
+		// remove duplicate dates from the newArray
+		const newArrayWithoutDuplicates = newArray.filter((item, index) => {
+
+			return newArray.indexOf(item) === index
+
+		})
+
+		setDateTimeArray(newArrayWithoutDuplicates)
 		console.info(`Adding currentDateTime: ${currentDateTime}`)
 		console.info(`Adding dateTimeArray:`, dateTimeArray)
 
