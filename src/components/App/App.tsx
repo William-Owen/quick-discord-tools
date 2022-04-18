@@ -17,7 +17,12 @@ function App() {
 
 			<main>
 				<Routes>
-					<Route path="/" element={<h1>Home</h1>} />
+					<Route path="/" element={
+						<>
+							<h1>Home</h1>
+							<p>A small collection of tools for helping do various things on discord. To be added to as we go along.</p>
+						</>
+					} />
 					<Route path="/discord-time" element={<PageDiscordTime/>} />
 					<Route path="/discord-time-poll" element={<PageMultipleDiscordTime/>} />
 				</Routes>
