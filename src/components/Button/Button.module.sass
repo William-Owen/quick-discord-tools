@@ -1,0 +1,72 @@
+.Button
+
+	--button-color: #fff
+	--button-backgroundColor: var(--color-action)
+	--button-borderColor: var(--color-action)
+	--button-borderColor-focus: #f90
+
+	appearance: none
+	background: var(--button-backgroundColor)
+	border-radius: var(--base-radius)
+	border: 2px solid transparent
+	box-shadow: none
+	color: var(--button-color)
+	cursor: pointer
+	display: inline-block
+	font-size: 1rem
+	font-smoothing: antialiased
+	font-weight: 400
+	line-height: 1.1875
+	margin: 0 0 1rem 0
+	outline: none
+	padding: .5rem 1rem
+	position: relative
+	text-align: center
+	vertical-align: top
+	width: auto
+
+	&.text
+
+		font-size: 1em
+		background: none
+		color: var(--color-action)
+		padding: 0
+		margin: 0
+
+	&.small
+
+		font-size: .6rem
+
+	&.medium
+
+		font-size: .8rem
+
+	&.large
+
+		font-size: 1.5rem
+
+	&.primary
+
+		font-weight: bold
+
+	&.warning
+
+		--button-color: #fff
+		--button-backgroundColor: #dc3545
+		--button-backgroundColor-hover: #dc3545
+		--button-borderColor-focus: #f898a2
+
+	&.disabled
+
+		--button-color: #fff
+		--button-backgroundColor: #879499
+		--button-backgroundColor-hover: #93aab4
+		cursor: not-allowed
+
+.Button.disabled:hover, .Button.disabled:focus
+
+	border: 2px solid transparent
+
+.Button:hover, .Button:focus
+
+	border: 2px solid var(--button-borderColor-focus)

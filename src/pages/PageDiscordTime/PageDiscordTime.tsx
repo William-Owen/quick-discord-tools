@@ -50,21 +50,25 @@ const PageDiscordTime: React.FC = () => {
 
 			</div>
 
-			<div>
+			{currentDateTime &&
 
-				<h3>Full Timestamp</h3>
+				<div>
 
-				<CopyTextToClipboard textToCopy={`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}>
-					<>{`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}</>
-				</CopyTextToClipboard>
+					<h3>Full Timestamp</h3>
 
-				<h3>Descriptive Timestamp</h3>
+					<CopyTextToClipboard textToCopy={`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}>
+						<>{`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}</>
+					</CopyTextToClipboard>
 
-				<CopyTextToClipboard textToCopy={`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}>
-					<>{`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}</>
-				</CopyTextToClipboard>
+					<h3>Descriptive Timestamp</h3>
 
-			</div>
+					<CopyTextToClipboard textToCopy={`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}>
+						<>{`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}</>
+					</CopyTextToClipboard>
+
+				</div>
+
+			}
 
 		</div>
 

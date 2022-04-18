@@ -4,6 +4,7 @@ import FieldInputTime from "../../components/FieldInputTime"
 import style from "./PageMultipleDiscordTime.module.sass"
 import moment from "moment"
 import CopyTextToClipboard from "../../components/CopyTextToClipboard"
+import Button from "../../components/Button"
 
 const PageMultipleDiscordTime: React.FC = () => {
 
@@ -53,6 +54,14 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 	})
 
+	const removeItemByIndex = (index: number) => {
+
+		const newArray = [...dateTimeArray]
+		newArray.splice(index, 1)
+		setDateTimeArray(newArray)
+
+	}
+
 	return (
 
 		<div data-testid="Page-PageDiscordTime" className={style.PageMultipleDiscordTime}>
@@ -67,22 +76,38 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 				<div>
 					<FieldInputTime onChange={(time)=>handleTimeChange(time)} />
-					<button onClick={handleAddTime}>Add time</button>
+					<Button size="medium" label="Add time" onClick={handleAddTime} />
 				</div>
 
 			</div>
 
-			<div>
+			{dateTimeIconString &&
 
-				<h3>Descriptive Timestamp</h3>
+				<div>
 
-				<CopyTextToClipboard textToCopy={dateTimeIconString}>
-					<pre>
-						{dateTimeIconString}
-					</pre>
-				</CopyTextToClipboard>
+					<h3>Descriptive Timestamp</h3>
 
-			</div>
+					<CopyTextToClipboard className={style.timeListing} textToCopy={dateTimeIconString}>
+
+						<>
+
+							{dateTimeArray.map((dateTime, index) => {
+
+								return(<div key={index}>{moment(dateTime).format("dddd, MMMM D, YYYY [at] HH:mm")} <Button size="text" label="Remove" onClick={()=>{
+
+									removeItemByIndex(index)
+
+								}} /> </div>)
+
+							})}
+
+						</>
+
+					</CopyTextToClipboard>
+
+				</div>
+
+			}
 
 		</div>
 

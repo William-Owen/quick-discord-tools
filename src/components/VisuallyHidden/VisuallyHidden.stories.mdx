@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas, Props } from "@storybook/addon-docs/blocks"
+import VisuallyHidden from "./VisuallyHidden"
+
+export const Template = (args) => <VisuallyHidden {...args} />
+export const TemplateWithChildren = (args) => <VisuallyHidden {...args}>This content is visually
+		hidden, but will be show when it receives focus</VisuallyHidden>
+
+<Meta title="Components/Atoms/Utilities/VisuallyHidden" component={VisuallyHidden} />
+
+# VisuallyHidden
+
+```javascript
+import { VisuallyHidden } from "pvh-core-ui"
+```
+
+## Overview
+
+This utility component is designed to hide content from the
+scree, whilst allowing it to be accessible to assistive
+technologies such as screen readers. This can be useful for
+providing access to context that might otherwise be
+conveyed visually in a manner inaccessible to assistive
+technologies. For example size and colour.
+
+## Props
+
+<Props of={VisuallyHidden} />
+
+## Styling Guide
+
+Do not style this component directly. If the component is
+set to show on focus then the children of the component can be
+styled.
+
+## Usage Guide
+
+None
+
+## Examples
+
+### Basic VisuallyHidden
+
+Used to visually hide content whilst still making it
+available to assistive technologies.
+
+**Note:** Due to the nature of this component there will be
+nothing shown in the below example. It is recommended that
+it is viewed in dev tools.
+
+<Canvas>
+	<Story name="Basic" args={{
+		showOnFocus: false
+	}}>
+		{Template.bind({})}
+	</Story>
+</Canvas>
+
+### Show on focus VisuallyHidden
+
+When set the content of the component will be shown when it
+receives focus. This can be useful to provide additional
+information to people who are using assistive technologies
+to navigate the page. For example, providing links to
+quickly jump to content for those navigating via a keyboard.
+
+**Note:** Due to the nature of this compoent there will be
+nothing shown in the below example. It is recommended that
+it is viewed in dev tools.
+
+<Canvas>
+	<Story name="Show on focus" args={{
+		showOnFocus: true
+	}}>
+		{TemplateWithChildren.bind({})}
+	</Story>
+</Canvas>
