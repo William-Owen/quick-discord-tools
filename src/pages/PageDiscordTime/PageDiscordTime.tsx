@@ -54,13 +54,13 @@ const PageDiscordTime: React.FC = () => {
 
 					<h3>Full Timestamp</h3>
 
-					<CopyTextToClipboard textToCopy={`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}>
+					<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}>
 						<>{`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}</>
 					</CopyTextToClipboard>
 
 					<h3>Descriptive Timestamp</h3>
 
-					<CopyTextToClipboard textToCopy={`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}>
+					<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}>
 						<>{`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}</>
 					</CopyTextToClipboard>
 

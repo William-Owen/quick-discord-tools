@@ -7,9 +7,10 @@ interface CopyTextToClipboardProps {
 	children?: React.ReactNode
 	className?: string
 	textToCopy: string
+	clickToCopyText?: string
 }
 
-const CopyTextToClipboard: React.FC<CopyTextToClipboardProps> = ({ children, className, textToCopy }) => {
+const CopyTextToClipboard: React.FC<CopyTextToClipboardProps> = ({ children, className, textToCopy, clickToCopyText = "Click to copy" }) => {
 
 	const rootClassName = clsx([style.CopyTextToClipboard, "CopyTextToClipboard", className])
 
@@ -18,6 +19,8 @@ const CopyTextToClipboard: React.FC<CopyTextToClipboardProps> = ({ children, cla
 	return (
 
 		<div data-testid='CopyTextToClipboard' onClick={handleClick} className={rootClassName}>
+
+			<div className={style.clickToCopyText}>{clickToCopyText}</div>
 
 			{children}
 

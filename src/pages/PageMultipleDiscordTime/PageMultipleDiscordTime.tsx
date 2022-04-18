@@ -80,10 +80,13 @@ const PageMultipleDiscordTime: React.FC = () => {
 			<div className={style.timeControls}>
 
 				<div>
+
 					<FieldInputDate onChange={(date)=>handleDateChange(date)} />
+
 				</div>
 
 				<div>
+
 					<FieldInputTime onChange={(time)=>handleTimeChange(time)} />
 
 					<div className={style.actionsBar}>
@@ -104,7 +107,7 @@ const PageMultipleDiscordTime: React.FC = () => {
 					<h3>Descriptive Timestamp</h3>
 					<p>Ordered by date, duplicates removed</p>
 
-					<CopyTextToClipboard className={style.timeListing} textToCopy={dateTimeIconString}>
+					<CopyTextToClipboard clickToCopyText="Click to copy discord code" className={style.timeListing} textToCopy={dateTimeIconString}>
 
 						<>
 
