@@ -2,7 +2,6 @@ import React, { createRef, MouseEventHandler, useState } from "react"
 import clsx from "clsx"
 import style from "./SelectTimezone.module.sass"
 import timezones from "./timezones.json"
-import FieldInputText from "../../components/FieldInputText"
 
 interface SelectTimezoneProps {
 	className?: string
