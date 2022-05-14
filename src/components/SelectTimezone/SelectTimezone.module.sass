@@ -1,0 +1,43 @@
+.SelectTimezone
+
+	display: Block
+
+	input
+
+		padding: 10px
+		appearance: none
+		border: .1rem solid var(--color-action)
+		width: 100%
+		border-radius: var(--base-radius)
+		background: var(--color-island)
+		color: white
+		font-feature-settings: "cv02","cv03","cv04","cv11"
+		line-height: 1.5
+		margin-bottom: 1rem
+
+		&::-webkit-input-placeholder
+			color: #aaa
+
+		&:focus
+
+			outline: none
+			border-color: white
+
+.TimeZoneList
+
+	margin-top: calc(-1rem - .25rem)
+	padding: 1rem
+	background: var(--color-island-alt)
+	border-radius: var(--base-radius)
+	color: var(--color-action)
+	border: .1rem solid var(--color-action)
+
+	div
+
+		padding: .25rem
+		color: var(--color-action)
+
+	div:hover
+
+		color: white !important
+		cursor: pointer

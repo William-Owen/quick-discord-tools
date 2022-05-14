@@ -1,16 +1,17 @@
 import * as React from "react"
 import { render } from "@testing-library/react"
-import Button from "."
+import SelectTimezone from "."
 
-describe("Component: Button", () => {
+describe("Component: SelectTimezone", () => {
 
 	it("renders", () => {
 
-		const { container } = render(<Button label="" size="medium" onClick={()=>{
+		const { container } = render(<SelectTimezone onSelect={()=>{
 
 			return null
 
 		}} />)
+
 		expect(container).toBeInTheDocument()
 
 	})

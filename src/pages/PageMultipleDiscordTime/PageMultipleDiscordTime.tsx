@@ -102,7 +102,7 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 			{dateTimeIconString &&
 
-				<div>
+				<div className={style.timePoll}>
 
 					<h3>Descriptive Timestamp</h3>
 					<p>Ordered by date, duplicates removed</p>
