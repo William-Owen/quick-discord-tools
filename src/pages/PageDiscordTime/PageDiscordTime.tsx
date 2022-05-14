@@ -13,10 +13,12 @@ const PageDiscordTime: React.FC = () => {
 	const [currentTime, setCurrentTime] = useState<string>("00:00")
 	const [currentDateTime, setCurrentDateTime] = useState<Date>(moment().toDate())
 	const [currentDisplayTimes, setCurrentDisplayTimes] = useState([
+		["Europe (London)", "Europe/London"],
 		["Europe (Berlin)", "Europe/Berlin"],
 		["Japan (Tokyo)", "Japan"],
 		["Australia (Melbourne)", "Australia/Melbourne"],
 		["America (New York)", "America/New_York"],
+		["America (Los Angeles)", "America/Los_Angeles"],
 	])
 
 	const handleDateTimeChange = (newTime: string, newDate: Date) => {
@@ -75,9 +77,11 @@ const PageDiscordTime: React.FC = () => {
 
 						<div className={style.cardContainer}>
 
-							<h2>What is <strong>{selectedTimeString}</strong><br />around the world?</h2>
+							<h2>Timezone Awareness</h2>
 
 							<SelectTimezone onSelect={handleNewTimeZone} />
+
+							<p><strong>{selectedTimeString}</strong> Local time is: </p>
 
 							<ul className={style.timezoneList}>
 
