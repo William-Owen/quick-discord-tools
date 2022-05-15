@@ -55,7 +55,7 @@ const CopyTextToClipboard: React.FC<CopyTextToClipboardProps> = ({ children, cla
 
 		<div data-testid='CopyTextToClipboard' onClick={handleClick} className={rootClassName}>
 
-			<div className={style.copied}>Copied to clipboard</div>
+			{wasCopied && <div className={style.copied}>Copied to clipboard</div> }
 			<div className={style.clickToCopyText}>{clickToCopyText}</div>
 
 			{children}

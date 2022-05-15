@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,900;1,100;1,300&display=swap')
+
 :root
 
 	--color-ocean: #0f172a
@@ -13,12 +15,13 @@
 	font-feature-settings: "cv02","cv03","cv04","cv11"
 	-webkit-text-size-adjust: 100%
 	tab-size: 4
-	font-family: 'Inter', sans-serif
+	font-family: 'Roboto', sans-serif
 	-webkit-font-smoothing: antialiased
 	-webkit-text-size-adjust: 100%
 	line-height: 1.5
 	font-weight: 100
-	padding: 2rem
+	padding: 0
+	margin: 0
 
 *,
 *:before,
@@ -29,9 +32,14 @@
 
 .App
 
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: center
+	height: 100vh
 	text-align: center
 	min-height: 100vh
-	overflow-x: hidden
+	// overflow-x: hidden
 
 h1, h2, h3, h4, h5, h6
 
@@ -56,13 +64,25 @@ a, a:visited, a:hover, a:active
 
 nav
 
-	display: inline-flex
-	flex-direction: row
-	justify-content: space-between
+	position: fixed
+	top: 0
+	left: 0
+	height: 100vh
+	width: 300px
+	background: var(--color-island-alt)
+	display: flex
+	flex-direction: column
+	justify-content: center
 	align-items: center
 	padding: 1rem
-
+	z-index: 1000000
 	a
 
 		display: block
 		padding: .5rem
+
+main
+
+	padding: 2rem
+	flex-grow: 1
+	overflow: x-scroll

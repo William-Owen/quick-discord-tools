@@ -20,14 +20,6 @@ const PageDiscordTime: React.FC = () => {
 
 	}
 
-	const discordMessage = dedent(`
-		**CLAIM: ${claimText.toUpperCase()}**
-		Street Epistemologist: **${seName}**
-		Conversation Partner: **${cpName}**
-		- - -
-		Starting at: <When Message is created>
-		Ending at: <${time} min from when Message is created>`)
-
 	const makeDiscordMessage = () => {
 
 		const currentTime = moment(new Date())
@@ -48,40 +40,43 @@ const PageDiscordTime: React.FC = () => {
 
 	return (
 
-		<div data-testid="Page-PageDiscordTime" className={style.PageDiscordTime}>
+		<div data-testid="Page-PageDiscordTime" className={style.PageSEPracticeTools}>
 
-			<h1>Conversation Participants</h1>
+			<h1>Conversation Details</h1>
 
-			<div className={style.sessionDetails}>
+			<div className={style.Layout}>
 
-				<FieldInputText onChange={(value)=>setClaimText(value)} label="Claim" />
-				<FieldInputText onChange={(value)=>setSeName(value)} label="Street Epistemologist" />
-				<FieldInputText onChange={(value)=>setCpName(value)} label="IL/Conversation Partner" />
-				<FieldInputText type="number" value="25" onChange={(value)=>setTime(parseInt(value))} label="Time" />
+				<div className={style.sessionDetails}>
 
-			</div>
+					<FieldInputText onChange={(value)=>setClaimText(value)} label="Claim" />
+					<FieldInputText onChange={(value)=>setSeName(value)} label="Street Epistemologist" />
+					<FieldInputText onChange={(value)=>setCpName(value)} label="IL/Conversation Partner" />
+					<FieldInputText type="number" value="25" onChange={(value)=>setTime(parseInt(value))} label="Time" />
 
-			<div className={style.displayGrid}>
+				</div>
 
-				{discordMessage &&
+				<div>
 
-					<>
+					<div className={style.cardContainer}>
 
-						<div className={style.cardContainer}>
+						<div className={style.childCard}>
 
-							<div className={style.childCard}>
+							<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={makeDiscordMessage}>
 
-								<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={makeDiscordMessage}>
-									<pre>{discordMessage}</pre>
-								</CopyTextToClipboard>
+								<strong>CLAIM: {claimText.toUpperCase()}</strong><br />
+								Street Epistemologist: <strong>{seName}</strong><br />
+								Conversation Partner: <strong>{cpName}</strong><br />
+								- - -<br />
+								From: <em>&lt;When message is copied&gt; to {time} min later&gt;</em>
 
-							</div>
+							</CopyTextToClipboard>
 
 						</div>
 
-					</>
+					</div>
 
-				}
+
+				</div>
 
 			</div>
 

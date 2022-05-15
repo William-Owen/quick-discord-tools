@@ -65,6 +65,8 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 	const removeItemByIndex = (index: number) => {
 
+		// prevent event bubbling
+
 		const newArray = [...dateTimeArray]
 		newArray.splice(index, 1)
 		setDateTimeArray(newArray)
@@ -113,8 +115,9 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 							{dateTimeArray.map((dateTime, index) => {
 
-								return(<div key={index}>{moment(dateTime).format("dddd, MMMM D, YYYY [at] HH:mm")} <Button size="text" label="Remove" onClick={()=>{
+								return(<div key={index}>{moment(dateTime).format("dddd, MMMM D, YYYY [at] HH:mm")} <Button size="text" label="Remove" onClick={(e)=>{
 
+									e.preventDefault()
 									removeItemByIndex(index)
 
 								}} /> </div>)

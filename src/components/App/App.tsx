@@ -18,6 +18,7 @@ function App() {
 			</nav>
 
 			<main>
+
 				<Routes>
 					<Route path="/" element={
 						<>
@@ -30,6 +31,12 @@ function App() {
 					<Route path="/se-practice" element={<PageSEPracticeTools />} />
 
 				</Routes>
+
+				<footer>
+
+					<p>Created by William Owen - <a href="https://github.com/William-Owen/quick-discord-tools">Code on GitHub</a> - Checkout <a href="https://deviantrobot.com/">deviantrobot.com</a> and <a href="https://www.youtube.com/c/inspirereflection">Inspire Reflection</a></p>
+
+				</footer>
 
 			</main>
 
