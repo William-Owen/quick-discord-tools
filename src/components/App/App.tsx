@@ -3,6 +3,7 @@ import style from "./App.module.sass"
 import { Routes, Route, Link } from "react-router-dom"
 import PageDiscordTime from "../../pages/PageDiscordTime"
 import PageMultipleDiscordTime from "../../pages/PageMultipleDiscordTime"
+import PageSEPracticeTools from "../../pages/PageSEPracticeTools"
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
 			<nav>
 				<Link to="/discord-time">Discord Time</Link>
 				<Link to="/discord-time-poll">Discord Time Poll</Link>
+				<Link to="/se-practice">SE Practice</Link>
 				<Link to="/">Home</Link>
 			</nav>
 
@@ -25,7 +27,10 @@ function App() {
 					} />
 					<Route path="/discord-time" element={<PageDiscordTime/>} />
 					<Route path="/discord-time-poll" element={<PageMultipleDiscordTime/>} />
+					<Route path="/se-practice" element={<PageSEPracticeTools />} />
+
 				</Routes>
+
 			</main>
 
 		</div>

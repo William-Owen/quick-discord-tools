@@ -45,7 +45,6 @@ const PageDiscordTime: React.FC = () => {
 
 	}
 
-
 	const handleDateChange = (date: Date) => {
 
 		setCurrentDate(date)
