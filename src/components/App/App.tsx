@@ -11,10 +11,10 @@ function App() {
 		<div className={style.App}>
 
 			<nav>
+				<Link to="/">Home</Link>
 				<Link to="/discord-time">Discord Time</Link>
 				<Link to="/discord-time-poll">Discord Time Poll</Link>
 				<Link to="/se-practice">SE Practice</Link>
-				<Link to="/">Home</Link>
 			</nav>
 
 			<main>
