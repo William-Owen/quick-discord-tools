@@ -1,8 +1,5 @@
 import { useState } from "react"
-import FieldInputDate from "../../components/FieldInputDate"
-import FieldInputTime from "../../components/FieldInputTime"
 import style from "./PageSEPracticeTools.module.sass"
-// import moment from "moment"
 import moment from "moment-timezone"
 import CopyTextToClipboard from "../../components/CopyTextToClipboard"
 import FieldInputText from "../../components/FieldInputText"
@@ -13,26 +10,39 @@ const PageDiscordTime: React.FC = () => {
 	const [claimText, setClaimText] = useState("")
 	const [seName, setSeName] = useState("")
 	const [cpName, setCpName] = useState("")
-	const [time, setTime] = useState("")
+	const [time, setTime] = useState(25)
 
-	const discordMessage = `
-	**CLAIM: ${claimText}**
-	Street Epistemologist: **${seName}**
-	Conversation Partner: **${cpName}**
-	Starting at: <When Message is created>
-	Ending at: <${time} min from when Message is created>`
+	function dedent(str:string) {
+
+		str = str.replace(/^\n/, "")
+		const match = str.match(/^\s+/)
+		return match ? str.replace(new RegExp("^"+match[0], "gm"), "") : str
+
+	}
+
+	const discordMessage = dedent(`
+		**CLAIM: ${claimText.toUpperCase()}**
+		Street Epistemologist: **${seName}**
+		Conversation Partner: **${cpName}**
+		- - -
+		Starting at: <When Message is created>
+		Ending at: <${time} min from when Message is created>`)
 
 	const makeDiscordMessage = () => {
 
-		const startTime = createDiscordTime(moment().add(time, "minutes").unix(), "T")
-		const endTime = createDiscordTime(moment().unix(), "T")
+		const currentTime = moment(new Date())
+		const startTime = createDiscordTime(currentTime.unix(), "T")
+		const endTime = createDiscordTime(currentTime.add(time, "minutes").unix(), "T")
 
-		const discordMessage = `
-		**CLAIM: ${claimText}**
-		Street Epistemologist: **${seName}**
-		Conversation Partner: **${cpName}**
-		Starting at: ${startTime}
-		Ending at: ${endTime}`
+		const discordMessage = dedent(`
+			**:se: CLAIM: ${claimText.toUpperCase()}**
+			Street Epidemiologist: **${seName}**
+			Conversation Partner: **${cpName}**
+			- - -
+			:clock1: From: ${startTime} to ${endTime}
+		`)
+
+		return discordMessage
 
 	}
 
@@ -42,12 +52,12 @@ const PageDiscordTime: React.FC = () => {
 
 			<h1>Conversation Participants</h1>
 
-			<div className={style.timeControls}>
+			<div className={style.sessionDetails}>
 
 				<FieldInputText onChange={(value)=>setClaimText(value)} label="Claim" />
 				<FieldInputText onChange={(value)=>setSeName(value)} label="Street Epistemologist" />
 				<FieldInputText onChange={(value)=>setCpName(value)} label="IL/Conversation Partner" />
-				<FieldInputText type="number" value="25" onChange={(value)=>setTime(value)} label="Time" />
+				<FieldInputText type="number" value="25" onChange={(value)=>setTime(parseInt(value))} label="Time" />
 
 			</div>
 

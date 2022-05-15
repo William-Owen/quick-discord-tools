@@ -6,7 +6,7 @@ export function createDiscordTime(
 	type: "t" | "T" | "d" | "D" | "f" | "F" | "R"
 ): string {
 
-	const timeStamp = Math.floor(unixDateTime / 1000)
+	const timeStamp = Math.floor(unixDateTime)
 	return `<t:${timeStamp}:${type}>`
 
 }
