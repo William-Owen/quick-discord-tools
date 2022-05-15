@@ -23,9 +23,11 @@ const PageDiscordTime: React.FC = () => {
 	const makeDiscordMessage = () => {
 
 		const currentTime = moment(new Date())
+		const currentEndTime = moment(new Date()).add(time, "minutes")
+
 		const startTime = createDiscordTime(currentTime.unix(), "T")
-		const relativeTime = createDiscordTime(currentTime.unix(), "R")
-		const endTime = createDiscordTime(currentTime.add(time, "minutes").unix(), "T")
+		const endTime = createDiscordTime(currentEndTime.unix(), "T")
+		const relativeTime = createDiscordTime(currentEndTime.unix(), "R")
 
 		const discordMessage = dedent(`
 			- - - - -
