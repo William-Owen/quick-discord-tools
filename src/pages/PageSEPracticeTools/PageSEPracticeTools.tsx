@@ -63,10 +63,9 @@ const PageDiscordTime: React.FC = () => {
 
 							<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={makeDiscordMessage}>
 
-								<strong>CLAIM: {claimText.toUpperCase()}</strong><br />
+								<strong>CLAIM:</strong> {claimText.toUpperCase()}<br />
 								Street Epistemologist: <strong>{seName}</strong><br />
 								Conversation Partner: <strong>{cpName}</strong><br />
-								- - -<br />
 								From: <em>&lt;When message is copied&gt; to {time} min later&gt;</em>
 
 							</CopyTextToClipboard>
