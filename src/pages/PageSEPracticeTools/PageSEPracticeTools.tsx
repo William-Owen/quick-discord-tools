@@ -24,14 +24,16 @@ const PageDiscordTime: React.FC = () => {
 
 		const currentTime = moment(new Date())
 		const startTime = createDiscordTime(currentTime.unix(), "T")
+		const relativeTime = createDiscordTime(currentTime.unix(), "R")
 		const endTime = createDiscordTime(currentTime.add(time, "minutes").unix(), "T")
 
 		const discordMessage = dedent(`
-			**:se: CLAIM: ${claimText.toUpperCase()}**
+			- - - - -
+			**:se: CLAIM**: ${claimText.toUpperCase()}
+			**${time}** min Session from ${startTime} to ${endTime} ends ${relativeTime}
 			Street Epidemiologist: **${seName}**
 			Conversation Partner: **${cpName}**
-			- - -
-			:clock1: From: ${startTime} to ${endTime}
+			- - - - -
 		`)
 
 		return discordMessage
@@ -64,9 +66,9 @@ const PageDiscordTime: React.FC = () => {
 							<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={makeDiscordMessage}>
 
 								<strong>CLAIM:</strong> {claimText.toUpperCase()}<br />
+								<strong>{time}</strong> min Session from <em>&lt;When message is copied&gt; to {time} min later&gt;</em> ends &lt;Relative time&gt;<br />
 								Street Epistemologist: <strong>{seName}</strong><br />
 								Conversation Partner: <strong>{cpName}</strong><br />
-								From: <em>&lt;When message is copied&gt; to {time} min later&gt;</em>
 
 							</CopyTextToClipboard>
 
