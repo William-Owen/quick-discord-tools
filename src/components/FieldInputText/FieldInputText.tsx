@@ -27,7 +27,7 @@ const FieldInputText: React.FC<FieldInputTextProps> = ({value, onChange,  classN
 
 			<Field label={label}>
 
-				<input type={type} placeholder={placeholder} onChange={handleChange} value={value} defaultValue={value} />
+				<input type={type} placeholder={placeholder} onChange={handleChange} defaultValue={value} />
 
 			</Field>
 

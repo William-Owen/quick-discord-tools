@@ -6,7 +6,7 @@ import copy from "copy-to-clipboard"
 interface CopyTextToClipboardProps {
 	children?: React.ReactNode
 	className?: string
-	textToCopy: string
+	textToCopy: string | (() => string)
 	clickToCopyText?: string
 }
 
@@ -20,7 +20,7 @@ const CopyTextToClipboard: React.FC<CopyTextToClipboardProps> = ({ children, cla
 		className
 	]
 
-	// if wasCopied thten add the className
+	// if wasCopied then add the className
 
 	if (wasCopied) {
 
@@ -30,7 +30,15 @@ const CopyTextToClipboard: React.FC<CopyTextToClipboardProps> = ({ children, cla
 
 	const handleClick = () => {
 
-		copy(textToCopy)
+		if (typeof textToCopy === "string") {
+
+			copy(textToCopy)
+
+		} else {
+
+			copy(textToCopy())
+
+		}
 		setWasCopied(true)
 
 		setTimeout(() => {
