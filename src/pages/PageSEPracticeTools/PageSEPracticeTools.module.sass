@@ -3,20 +3,34 @@
 	.Layout
 
 		display: inline-flex
-		flex-direction: row
+		flex-direction: column
+		margin-bottom: 2rem
 
-.sessionDetails
+	@media (min-width: 550px)
 
-	width: 400px
+		.Layout
+
+			flex-direction: row
+
+.layoutDetails
+
+	flex: 1
 	background: var(--color-island)
 	border-radius: var(--base-radius)
-	margin: 0 1rem 1rem 0
 	padding: 1rem
 	text-align: left
+	margin: 0 0 1rem 0
+
+	@media (min-width: 550px)
+
+		margin: 0 1rem 1rem 0
+
+.layoutOutput
+
+	flex: 1
 
 .childCard
 
 	text-align: left
 	color: white
 	font-family: Arial, Helvetica, sans-serif
-	max-width: 500px

@@ -50,7 +50,7 @@ const PageDiscordTime: React.FC = () => {
 
 			<div className={style.Layout}>
 
-				<div className={style.sessionDetails}>
+				<div className={style.layoutDetails}>
 
 					<FieldInputText onChange={(value)=>setClaimText(value)} label="Claim" />
 					<FieldInputText onChange={(value)=>setSeName(value)} label="Street Epistemologist" />
@@ -59,7 +59,7 @@ const PageDiscordTime: React.FC = () => {
 
 				</div>
 
-				<div>
+				<div className={style.layoutOutput}>
 
 					<div className={style.cardContainer}>
 
