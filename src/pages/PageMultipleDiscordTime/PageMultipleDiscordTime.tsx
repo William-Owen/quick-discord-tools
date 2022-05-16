@@ -1,10 +1,9 @@
 import { useState } from "react"
-import FieldInputDate from "../../components/FieldInputDate"
-import FieldInputTime from "../../components/FieldInputTime"
 import style from "./PageMultipleDiscordTime.module.sass"
 import moment from "moment"
 import CopyTextToClipboard from "../../components/CopyTextToClipboard"
 import Button from "../../components/Button"
+import FieldInputDateTime from "../../components/FieldInputDateTime"
 
 const PageMultipleDiscordTime: React.FC = () => {
 
@@ -79,58 +78,48 @@ const PageMultipleDiscordTime: React.FC = () => {
 
 			<h1>Discord Time Poll</h1>
 
-			<div className={style.timeControls}>
+			<div className={style.layout}>
 
-				<div>
+				<FieldInputDateTime className={style.layoutTimeControls} onTimeChange={handleTimeChange} onDateChange={handleDateChange} />
 
-					<FieldInputDate onChange={(date)=>handleDateChange(date)} />
+				<div className={style.actionsBar}>
+
+					<Button size="medium" label="Add time" onClick={handleAddTime} />
+					<Button size="medium" label="Clear" onClick={handleRemoveAll} />
 
 				</div>
 
-				<div>
+				{dateTimeIconString &&
 
-					<FieldInputTime onChange={(time)=>handleTimeChange(time)} />
+					<div className={style.layoutTimePoll}>
 
-					<div className={style.actionsBar}>
+						<h3>Descriptive Timestamp</h3>
+						<p>Ordered by date, duplicates removed</p>
 
-						<Button size="medium" label="Add time" onClick={handleAddTime} />
-						<Button size="medium" label="Clear" onClick={handleRemoveAll} />
+						<CopyTextToClipboard clickToCopyText="Click to copy discord code" className={style.timeListing} textToCopy={dateTimeIconString}>
+
+							<>
+
+								{dateTimeArray.map((dateTime, index) => {
+
+									return(<div key={index}>{moment(dateTime).format("dddd, MMMM D, YYYY [at] HH:mm")} <Button size="text" label="Remove" onClick={(e)=>{
+
+										e.preventDefault()
+										removeItemByIndex(index)
+
+									}} /> </div>)
+
+								})}
+
+							</>
+
+						</CopyTextToClipboard>
 
 					</div>
 
-				</div>
+				}
 
 			</div>
-
-			{dateTimeIconString &&
-
-				<div className={style.timePoll}>
-
-					<h3>Descriptive Timestamp</h3>
-					<p>Ordered by date, duplicates removed</p>
-
-					<CopyTextToClipboard clickToCopyText="Click to copy discord code" className={style.timeListing} textToCopy={dateTimeIconString}>
-
-						<>
-
-							{dateTimeArray.map((dateTime, index) => {
-
-								return(<div key={index}>{moment(dateTime).format("dddd, MMMM D, YYYY [at] HH:mm")} <Button size="text" label="Remove" onClick={(e)=>{
-
-									e.preventDefault()
-									removeItemByIndex(index)
-
-								}} /> </div>)
-
-							})}
-
-						</>
-
-					</CopyTextToClipboard>
-
-				</div>
-
-			}
 
 		</div>
 

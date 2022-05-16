@@ -1,11 +1,10 @@
 import { useState } from "react"
-import FieldInputDate from "../../components/FieldInputDate"
-import FieldInputTime from "../../components/FieldInputTime"
 import style from "./PageDiscordTime.module.sass"
 // import moment from "moment"
 import moment from "moment-timezone"
 import CopyTextToClipboard from "../../components/CopyTextToClipboard"
 import SelectTimezone from "../../components/SelectTimezone"
+import FieldInputDateTime from "../../components/FieldInputDateTime"
 
 const PageDiscordTime: React.FC = () => {
 
@@ -61,14 +60,9 @@ const PageDiscordTime: React.FC = () => {
 
 			<h1>Discord Time</h1>
 
-			<div className={style.timeControls}>
+			<FieldInputDateTime className={style.layoutTimeControls} onTimeChange={handleTimeChange} onDateChange={handleDateChange} />
 
-				<FieldInputDate onChange={(date)=>handleDateChange(date)} />
-				<FieldInputTime onChange={(time)=>handleTimeChange(time)} />
-
-			</div>
-
-			<div className={style.displayGrid}>
+			<div className={style.layout}>
 
 				{currentDateTime &&
 
@@ -100,7 +94,7 @@ const PageDiscordTime: React.FC = () => {
 							<div className={style.childCard}>
 
 								<h3>Time Only</h3>
-
+								<p>{moment(new Date(currentDateTime)).format("h:mm A")}</p>
 								<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:t>`}>
 									<>{`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:t>`}</>
 								</CopyTextToClipboard>
@@ -110,7 +104,7 @@ const PageDiscordTime: React.FC = () => {
 							<div className={style.childCard}>
 
 								<h3>Full Timestamp</h3>
-
+								<p>{moment(new Date(currentDateTime)).format("dddd, MMMM D YYYY h:mm A")}</p>
 								<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}>
 									<>{`<t:${Math.floor(new Date(currentDateTime).getTime() / 1000)}:F>`}</>
 								</CopyTextToClipboard>
@@ -120,6 +114,8 @@ const PageDiscordTime: React.FC = () => {
 							<div className={style.childCard}>
 
 								<h3>Descriptive Timestamp</h3>
+
+								<p>{moment(new Date(currentDateTime)).format("dddd, MMMM D YYYY h:mm A")} ({moment(new Date(currentDateTime)).fromNow()}) your time.</p>
 
 								<CopyTextToClipboard clickToCopyText="Click to copy discord code" textToCopy={`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}>
 									<>{`<t:${discordTimeStamp}:F> (<t:${discordTimeStamp}:R>) your time.`}</>
