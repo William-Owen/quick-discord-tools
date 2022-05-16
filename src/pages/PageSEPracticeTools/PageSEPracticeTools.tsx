@@ -33,7 +33,7 @@ const PageDiscordTime: React.FC = () => {
 			- - - - -
 			**:se: CLAIM**: ${claimText.toUpperCase()}
 			**${time}** min Session from ${startTime} to ${endTime} ends ${relativeTime}
-			Street Epidemiologist: **${seName}**
+			Street Epistemologist: **${seName}**
 			Conversation Partner: **${cpName}**
 			- - - - -
 		`)
