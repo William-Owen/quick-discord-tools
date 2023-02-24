@@ -45,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({
 
 	return (
 
-		<button data-testid="-button" onClick={handelOnClick} {...disabled} className={classNames}>
+		<button data-testid="-button" onClick={handelOnClick} disabled={disabled} className={classNames}>
 
 			{warning && <VisuallyHidden>{warningLabelPrefix}</VisuallyHidden>}
 

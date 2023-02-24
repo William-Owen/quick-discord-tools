@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 import style from "./PageSEPracticeTools.module.sass"
 import moment from "moment-timezone"
 import CopyTextToClipboard from "../../components/CopyTextToClipboard"
 import FieldInputText from "../../components/FieldInputText"
 import { createDiscordTime } from "../../modules/createDiscordTime"
 
-const PageDiscordTime: React.FC = () => {
+const PageDiscordTime: FC = () => {
 
 	const [claimText, setClaimText] = useState("")
 	const [seName, setSeName] = useState("")
@@ -24,7 +24,6 @@ const PageDiscordTime: React.FC = () => {
 
 		const currentTime = moment(new Date())
 		const currentEndTime = moment(new Date()).add(time, "minutes")
-
 		const startTime = createDiscordTime(currentTime.unix(), "T")
 		const endTime = createDiscordTime(currentEndTime.unix(), "T")
 		const relativeTime = createDiscordTime(currentEndTime.unix(), "R")

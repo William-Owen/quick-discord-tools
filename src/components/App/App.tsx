@@ -4,6 +4,7 @@ import { Routes, Route, Link } from "react-router-dom"
 import PageDiscordTime from "../../pages/PageDiscordTime"
 import PageMultipleDiscordTime from "../../pages/PageMultipleDiscordTime"
 import PageSEPracticeTools from "../../pages/PageSEPracticeTools"
+import PageDVRDiscussion from "../../pages/PageDVRDiscussion"
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
 				<Link to="/discord-time">Discord Time</Link>
 				<Link to="/discord-time-poll">Discord Time Poll</Link>
 				<Link to="/se-practice">SE Practice</Link>
+				<Link to="/dvr-discussion">DVR Discussion</Link>
 			</nav>
 
 			<main>
@@ -29,6 +31,7 @@ function App() {
 					<Route path="/discord-time" element={<PageDiscordTime/>} />
 					<Route path="/discord-time-poll" element={<PageMultipleDiscordTime/>} />
 					<Route path="/se-practice" element={<PageSEPracticeTools />} />
+					<Route path="/dvr-discussion" element={<PageDVRDiscussion />} />
 
 				</Routes>
 
