@@ -6,13 +6,15 @@ import Field from "../Field/Field"
 interface FieldInputTimeProps {
 	className?: string
 	onChange?: (value: string) => void
-	label?: string
+	label?: string,
+	hour?: number,
+	minute?: 0 | 15 | 30 | 45,
 }
 
-const FieldInputTime: React.FC<FieldInputTimeProps> = ({ className, onChange = () => null, label }) => {
+const FieldInputTime: React.FC<FieldInputTimeProps> = ({ hour, minute, className, onChange = () => null, label }) => {
 
-	const [selectedHour, setSelectedHour] = useState(0)
-	const [selectedMinute, setSelectedMinute] = useState(0)
+	const [selectedHour, setSelectedHour] = useState(hour || 0)
+	const [selectedMinute, setSelectedMinute] = useState(minute || 0)
 
 	const rootClassName = clsx([style.FieldInputTime, "FieldInputTime", className])
 	const minutes = [0, 15, 30, 45]
